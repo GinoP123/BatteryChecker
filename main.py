@@ -1,4 +1,4 @@
-#!/Users/ginoprasad/miniconda3/bin/python3
+#!/usr/bin/env python3
 
 import re
 import subprocess as sp
