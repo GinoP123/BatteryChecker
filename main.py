@@ -13,9 +13,6 @@ battery_percentage = int(re.search("\\S*(?=%)", battery_percentage).group(0))
 
 
 if charging_status != "AC Power" and battery_percentage < settings.battery_percentage_threshold:
-	emails = ' '.join([f"'{email}'" for email in settings.emails])
+	emails = ' '.join([f"'{email}'" for email in settings.logging_emails])
 	sp.run(f'"{settings.create_event_path}" "Check Battery On Mac Server!!!" 0 {emails}', shell=True)
-	print("Battery Low")
-else:
-	print("Battery Fine/Charging")
 
