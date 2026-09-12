@@ -4,6 +4,10 @@ import re
 import subprocess as sp
 import settings
 from datetime import datetime
+import os, glob
+import sys
+
+os.chdir(os.path.realpath(os.path.dirname(sys.argv[0])))
 
 output = sp.run("pmset -g batt", shell=True, capture_output=True).stdout.decode()
 charging_status, battery_percentage = output.strip().split('\n')
